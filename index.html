@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>imnotevil</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="image/x-icon" href="notevil.png">
+    
+    <meta charset="UTF-8">
+    <meta name="description" content="Clear web version of long forgotten .onion browser. For these who seek the truth.">
+    <meta name="keywords" content=".onion, onion, tor, browser, evil, notevil, imnotevil, not, im">
+    <meta name="author" content="bloxxylenny">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div>
+        <div style="font-size: 48pt; color: #eee; text-align: center; font-weight: lighter; text-shadow: 3px 0px #aaa;">imnotevil</div>
+        <br>
+        <div id="main">
+            <div style="color: #888; text-align: center;"><i>All the privacy without search data tracking. For You, by me.</i></div>
+            <br>
+            <input id="searchinput" type="text" placeholder="Seek the truth." style="background-color: #9c9c9c; color: #fff; display: block; margin: auto; width: 80%; height: 30px; text-align: center;">
+            <br>
+            <span><button id="searchbutton" type="button" style="background-color: #acacac; color: #000; display: block; margin: auto; width: 150px; height: 30px; text-align: center;"><b>Searchit</b></button></span>
+            <span><button id="newtabbutton" type="button" style="background-color: #acacac; color: #000; display: block; margin: auto; width: 150px; height: 30px; text-align: center;"><b>Searchit In New Tab</b></button></span>
+            <br>
+            <br>
+            <img src="rainbow-batman.gif" style="display: block; margin: auto; width: 40%; height: auto;">
+            <br>
+            <a style="text-align: center; display: block; color: #fff" href="ftp/readme.txt" download="readme.txt">readme.txt</a>
+        </div>
+        <div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="hidden_randomtext" style="text-align: center; color: #1c1c1c"></div>
+        </div>
+        
+        <noscript>
+            <div id="main" style="z-index: 5; font-size: 48pt; width: 100%; height: 100%; color: #1c1c1c">Your browser doesn't want You to seek the truth</div>
+        </noscript>
+        
+        <script>
+            let randomtexts = ["helpmeimsad", "coldness in my heart", "let me out", "dont hide the truth", "nobody knows me", "im seeking understandment"]
+            
+            let randomNumber = Math.floor(Math.random() * randomtexts.length);
+            
+            function openTab(newTab){
+                let searchString = document.getElementById("searchinput").value;
+                searchString.replace(" ", "+");
+                
+                if(searchString == ""){
+                    searchString = "im+not+empty"
+                }
+                
+                let baseUrl = "https://duckduckgo.com/?q=";
+                let endUrl = baseUrl.concat(searchString);
+                     
+                if(newTab) {
+                    window.open(endUrl);
+                } else {
+                    window.location.href = endUrl;
+                }
+            }
+            
+            document.getElementById("hidden_randomtext").textContent = randomtexts[randomNumber];
+            
+            document.getElementById("searchbutton").addEventListener("click", function(){
+               openTab(false);
+            });
+            
+            document.getElementById("newtabbutton").addEventListener("click", function(){
+               openTab(true);
+            });
+        </script>
+        
+        <footer style="color: #888; text-align: center;">2024© Copyright BloxxyLenny</footer>
+        <footer style="color: #888; text-align: center;">@bloxxylenny on Discord</footer>
+    </div> 
+</body>
+</html>
